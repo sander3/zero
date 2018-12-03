@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Monolog\Logger;
 use Illuminate\Database\Eloquent\Model;
 
 class Log extends Model
@@ -28,6 +29,23 @@ class Log extends Model
     protected $casts = [
         'context' => 'array',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['level_name'];
+
+    /**
+     * Get the log's level name.
+     *
+     * @return string
+     */
+    public function getLevelNameAttribute()
+    {
+        return strtolower(Logger::getLevelName($this->level));
+    }
 
     /**
      * Get the user that owns the log.

@@ -93,6 +93,12 @@ return [
             'driver' => 'custom',
             'via'    => DatabaseLogger::class,
         ],
+
+        'mail' => [
+            'driver' => 'single',
+            'path'   => storage_path('logs/mail.log'),
+            'level'  => 'debug',
+        ],
     ],
 
 ];
