@@ -28,4 +28,12 @@ class User extends Authenticatable implements CanMagicallyLoginContract
     protected $hidden = [
         'remember_token',
     ];
+
+    /**
+     * Get the logs for the user.
+     */
+    public function logs()
+    {
+        return $this->hasMany('App\Log');
+    }
 }
