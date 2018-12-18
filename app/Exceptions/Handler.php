@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
+use App;
 use Exception;
+use App\Mail\ExceptionReport;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -43,10 +46,28 @@ class Handler extends ExceptionHandler
             return $e->report();
         }
 
+        if (!config('app.debug')) {
+            $this->sendExceptionReportMail($e);
+        }
+
         Log::channel('daily')->error(
             $e->getMessage(),
             array_merge($this->context(), ['exception' => $e])
         );
+    }
+
+    /**
+     * Send an exception report mail.
+     *
+     * @param  \Exception  $exception
+     * @return void
+     */
+    private function sendExceptionReportMail(Exception $exception)
+    {
+        $request = App::runningInConsole() ? false : request();
+
+        Mail::to(config('app.exception_report_recipient'))
+            ->send(new ExceptionReport($request, $exception));
     }
 
     /**

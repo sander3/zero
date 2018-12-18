@@ -43,6 +43,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Exception Report Recipient
+    |--------------------------------------------------------------------------
+    |
+    | When your application isn't in debug mode, detailed error messages with
+    | stack traces will be mailed on every error that occurs within your
+    | application. Set the recipient of the exception report here.
+    |
+    */
+
+    'exception_report_recipient' => env('EXCEPTION_REPORT_RECIPIENT'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application URL
     |--------------------------------------------------------------------------
     |
