@@ -24,10 +24,12 @@ class EventServiceProvider extends ServiceProvider
 
         'Illuminate\Auth\Events\Login' => [
             'App\Listeners\Auth\LogSuccessfulLogin',
+            'App\Listeners\Auth\QueueEmailCookie',
         ],
 
         'Illuminate\Auth\Events\Logout' => [
             'App\Listeners\Auth\LogSuccessfulLogout',
+            'App\Listeners\Auth\ForgetEmailCookie',
         ],
     ];
 
