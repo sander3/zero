@@ -25,6 +25,7 @@ class LogAuthenticated
      */
     public function handle(Authenticated $event)
     {
-        Log::debug('User authenticated.', ['id' => $event->user->id]);
+        Log::channel('daily')
+            ->debug('User authenticated.', ['id' => $event->user->id]);
     }
 }
