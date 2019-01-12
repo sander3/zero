@@ -28,8 +28,7 @@ class HomeController extends Controller
             'logs' => $request
                 ->user()
                 ->logs()
-                ->groupBy('message')
-                ->orderBy('created_at', 'level')
+                ->latest()
                 ->take(5)
                 ->get(),
         ]);
