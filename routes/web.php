@@ -19,4 +19,20 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
+
+    // Settings
+    Route::group([
+        'namespace' => 'Settings',
+        'prefix'    => 'settings',
+        'as'        => 'settings.',
+    ], function () {
+        // Account
+        Route::get('account', 'AccountController@show')->name('account.show');
+        Route::put('account', 'AccountController@update')->name('account.update');
+
+        // Security
+        Route::get('security', 'SecurityController')->name('security');
+    });
+});

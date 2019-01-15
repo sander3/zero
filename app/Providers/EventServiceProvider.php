@@ -31,6 +31,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Auth\LogSuccessfulLogout',
             'App\Listeners\Auth\ForgetEmailCookie',
         ],
+
+        // Application Events...
+        'App\Events\Settings\AccountUpdated' => [
+            'App\Listeners\Settings\LogUpdatedAccount',
+        ],
     ];
 
     /**
