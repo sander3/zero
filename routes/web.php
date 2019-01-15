@@ -20,3 +20,16 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function () {
+    // Settings
+    Route::group([
+        'namespace' => 'Settings',
+        'prefix'    => 'settings',
+        'as'        => 'settings.',
+    ], function () {
+        // Account
+        Route::get('account', 'AccountController@show')->name('account.show');
+        Route::put('account', 'AccountController@update')->name('account.update');
+    });
+});
