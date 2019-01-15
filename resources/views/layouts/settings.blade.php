@@ -8,6 +8,9 @@
                 <a href="{{ route('settings.account.show') }}" class="list-group-item list-group-item-action">
                     @lang('settings.account')
                 </a>
+                <a href="{{ route('settings.security') }}" class="list-group-item list-group-item-action">
+                    @lang('settings.security')
+                </a>
             </div>
         </div>
         <div class="col-md-8">

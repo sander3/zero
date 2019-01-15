@@ -14,7 +14,6 @@
                 </div>
             </div>
         </div>
-        @include('components.log')
     </div>
 </div>
 @endsection

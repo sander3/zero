@@ -9,5 +9,6 @@ return [
         'nl' => 'Dutch',
         'en' => 'English',
     ],
+    'security'        => 'Security',
 
 ];
