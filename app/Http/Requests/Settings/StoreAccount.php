@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Settings;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAccount extends FormRequest
@@ -24,7 +25,12 @@ class StoreAccount extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name'   => ['required', 'string', 'max:255'],
+            'locale' => [
+                'string',
+                'max:2',
+                Rule::in(array_keys(__('settings.locales'))),
+            ],
         ];
     }
 }

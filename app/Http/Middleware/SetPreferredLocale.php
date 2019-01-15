@@ -18,12 +18,9 @@ class SetPreferredLocale
         $request,
         Closure $next
     ) {
-        $availableLocales = [
-            config('app.locale'),
-            config('app.fallback_locale'),
-        ];
+        $availableLocales = array_keys(__('settings.locales'));
 
-        $locale = $request->getPreferredLanguage($availableLocales);
+        $locale = optional($request->user())->locale ?? $request->getPreferredLanguage($availableLocales);
 
         App::setLocale($locale);
 

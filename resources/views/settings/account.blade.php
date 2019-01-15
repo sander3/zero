@@ -25,6 +25,23 @@
             <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" readonly>
         </div>
 
+        <div class="form-group">
+            <label for="locale">{{ __('Language') }}</label>
+            <select class="form-control{{ $errors->has('locale') ? ' is-invalid' : '' }}" id="locale" name="locale">
+                @foreach (__('settings.locales') as $key => $value)
+                    <option value="{{ $key }}"{{ App::isLocale($key) ? ' selected' : '' }}>
+                        {{ $value }}
+                    </option>
+                @endforeach
+            </select>
+
+            @if ($errors->has('locale'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('locale') }}</strong>
+                </span>
+            @endif
+        </div>
+
         <div class="form-group mb-0">
             <button type="submit" class="btn btn-success">
                 {{ __('Save') }}

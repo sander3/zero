@@ -17,7 +17,7 @@ class User extends Authenticatable implements CanMagicallyLoginContract
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 'email', 'locale',
     ];
 
     /**
