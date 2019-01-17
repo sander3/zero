@@ -19,9 +19,7 @@
             <div class="card">
                 <div class="card-header">@yield('title')</div>
 
-                <div class="card-body">
-                    @yield('setting')
-                </div>
+                @yield('setting')
             </div>
         </div>
     </div>
