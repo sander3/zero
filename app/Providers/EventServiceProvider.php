@@ -36,6 +36,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Settings\AccountUpdated' => [
             'App\Listeners\Settings\LogUpdatedAccount',
         ],
+
+        'App\Events\Settings\AccountDeleted' => [
+            'App\Listeners\Settings\LogDeletedAccount',
+        ],
     ];
 
     /**

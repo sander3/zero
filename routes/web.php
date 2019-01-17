@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
         // Account
         Route::get('account', 'AccountController@show')->name('account.show');
         Route::put('account', 'AccountController@update')->name('account.update');
+        Route::get('account/delete', 'AccountController@delete')->name('account.delete');
+        Route::get('account/destroy', 'AccountController@destroy')->name('account.destroy')->middleware('signed');
 
         // Security
         Route::get('security', 'SecurityController')->name('security');
