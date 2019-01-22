@@ -6,10 +6,10 @@
         <div class="col-md-4">
             <div class="list-group">
                 <a href="{{ route('settings.account.show') }}" class="list-group-item list-group-item-action">
-                    @lang('settings.account')
+                    👤 @lang('settings.account')
                 </a>
                 <a href="{{ route('settings.security') }}" class="list-group-item list-group-item-action">
-                    @lang('settings.security')
+                    🔒 @lang('settings.security')
                 </a>
             </div>
         </div>
