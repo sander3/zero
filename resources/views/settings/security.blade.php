@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{ $log->message }}</td>
                         <td title="{{ $log->ip_address }}">
-                            {{ str_limit($log->ip_address, 20, ' (...)') }}
+                            {{ Illuminate\Support\Str::limit($log->ip_address, 20, ' (...)') }}
                         </td>
                         <td title="{{ $log->created_at }}">
                             {{ $log->created_at->diffForHumans() }}
